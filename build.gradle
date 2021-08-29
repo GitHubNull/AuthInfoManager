@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'org.0xff'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'net.portswigger.burp.extender:burp-extender-api:1.7.13'
+    // https://mvnrepository.com/artifact/com.intellij/forms_rt
+    implementation group: 'com.intellij', name: 'forms_rt', version: '7.0.3'
+
+    // https://mvnrepository.com/artifact/com.jgoodies/forms
+    implementation group: 'com.jgoodies', name: 'forms', version: '1.2.1'
+
+//    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+//    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
