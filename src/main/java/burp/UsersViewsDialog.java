@@ -272,6 +272,7 @@ public class UsersViewsDialog extends JDialog {
     }
 
     public void addKVsRowsByHeaders(List<String> headers) {
+        kvsModel.getDataVector().clear();
         for (String header : headers) {
             String[] keyValue = header.split(": ");
             if (keyValue.length <= 1) {
@@ -286,6 +287,7 @@ public class UsersViewsDialog extends JDialog {
     }
 
     public void addKVsByUserSessionInfos(Map<String, String> userSessionInfos) {
+        kvsModel.getDataVector().clear();
         for (Map.Entry<String, String> enttry : userSessionInfos.entrySet()) {
             kvsModel.addRow(new Object[]{enttry.getKey(), enttry.getValue(), true});
         }
@@ -502,7 +504,7 @@ public class UsersViewsDialog extends JDialog {
         AuthInfo authInfo = new AuthInfo(role, name, keyValues);
 
         USER_OPT_STATUS status = AuthInfosDB.addAuthInfo(authInfo);
-        BurpExtender.stdout.println("addAuthInfo: " + status);
+        BurpExtender.StdoutPrintln("addAuthInfo: " + status);
         if (USER_OPT_STATUS.ADD_USER_SUCCESS == status) {
             AuthInfosDB.setUserIndex(AuthInfosDB.getUserIndex() + 1);
             JOptionPane.showMessageDialog(null, "add success!", "success", JOptionPane.INFORMATION_MESSAGE);

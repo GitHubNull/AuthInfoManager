@@ -206,15 +206,15 @@ public class Menu implements IContextMenuFactory, ActionListener {
                 byte[] body = Utils.getBodyBytes(request, BurpExtender.helpers.analyzeRequest(request).getBodyOffset());
 
 
-                BurpExtender.stdout.println("=================================================");
-                BurpExtender.stdout.println(BurpExtender.helpers.bytesToString(body));
-                BurpExtender.stdout.println("=================================================");
+                BurpExtender.StdoutPrintln("=================================================");
+                BurpExtender.StdoutPrintln(BurpExtender.helpers.bytesToString(body));
+                BurpExtender.StdoutPrintln("=================================================");
 
                 byte[] rawData = BurpExtender.helpers.buildHttpMessage(headers, body);
 
-                BurpExtender.stdout.println("-------------------------------------------------");
-                BurpExtender.stdout.println(BurpExtender.helpers.bytesToString(rawData));
-                BurpExtender.stdout.println("-------------------------------------------------");
+                BurpExtender.StdoutPrintln("-------------------------------------------------");
+                BurpExtender.StdoutPrintln(BurpExtender.helpers.bytesToString(rawData));
+                BurpExtender.StdoutPrintln("-------------------------------------------------");
 
 
                 messages[0].setRequest(rawData);
@@ -294,15 +294,15 @@ public class Menu implements IContextMenuFactory, ActionListener {
                 byte[] replaceUserBody = Utils.getBodyBytes(request, BurpExtender.helpers.analyzeRequest(request).getBodyOffset());
 
 
-                BurpExtender.stdout.println("=================================================");
-                BurpExtender.stdout.println(BurpExtender.helpers.bytesToString(replaceUserBody));
-                BurpExtender.stdout.println("=================================================");
+                BurpExtender.StdoutPrintln("=================================================");
+                BurpExtender.StdoutPrintln(BurpExtender.helpers.bytesToString(replaceUserBody));
+                BurpExtender.StdoutPrintln("=================================================");
 
                 byte[] replaceUserRawData = BurpExtender.helpers.buildHttpMessage(headers, replaceUserBody);
 
-                BurpExtender.stdout.println("-------------------------------------------------");
-                BurpExtender.stdout.println(BurpExtender.helpers.bytesToString(replaceUserRawData));
-                BurpExtender.stdout.println("-------------------------------------------------");
+                BurpExtender.StdoutPrintln("-------------------------------------------------");
+                BurpExtender.StdoutPrintln(BurpExtender.helpers.bytesToString(replaceUserRawData));
+                BurpExtender.StdoutPrintln("-------------------------------------------------");
 
 
                 messages[0].setRequest(replaceUserRawData);
